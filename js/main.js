@@ -1,0 +1,1 @@
+const btn=document.querySelector(".menu"),nav=document.querySelector(".site-header nav");btn?.addEventListener("click",()=>nav.classList.toggle("open"));

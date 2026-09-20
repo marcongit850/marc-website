@@ -3,91 +3,641 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marc Douglass</title>
+
+    <title>Marc Douglass | Entrepreneur & Investor</title>
+    <meta name="description" content="Marc Douglass is an entrepreneur and investor with interests in business, real estate, technology, and community initiatives.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
     <style>
+        :root {
+            --navy: #091820;
+            --navy-light: #102832;
+            --teal: #317d7a;
+            --gold: #c8a76a;
+            --cream: #f4f0e8;
+            --muted: #aab8bc;
+            --line: rgba(255,255,255,.12);
+        }
+
         * {
             box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background: #f5f7f9;
-            color: #24323a;
+            font-family: "DM Sans", sans-serif;
+            background: var(--navy);
+            color: white;
+            overflow-x: hidden;
         }
+
+        /* NAV */
+
+        nav {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 20;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 6%;
+        }
+
+        .logo {
+            font-family: "Playfair Display", serif;
+            font-size: 21px;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            color: rgba(255,255,255,.7);
+            text-decoration: none;
+            font-size: 13px;
+            letter-spacing: 1px;
+            transition: .25s;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        /* HERO */
 
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 40px 20px;
+            position: relative;
+            padding: 140px 8% 100px;
+            overflow: hidden;
         }
 
-        .content {
-            max-width: 750px;
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 750px;
+            height: 750px;
+            border-radius: 50%;
+            background: radial-gradient(
+                circle,
+                rgba(49,125,122,.22),
+                transparent 68%
+            );
+            right: -180px;
+            top: -160px;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(
+                circle,
+                rgba(200,167,106,.09),
+                transparent 70%
+            );
+            left: -200px;
+            bottom: -220px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1050px;
+        }
+
+        .eyebrow {
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 30px;
         }
 
         h1 {
-            font-size: 56px;
-            margin: 0 0 15px;
-            color: #173b4c;
+            font-family: "Playfair Display", serif;
+            font-size: clamp(65px, 10vw, 130px);
+            line-height: .88;
+            letter-spacing: -5px;
+            font-weight: 600;
         }
 
-        .tagline {
-            font-size: 22px;
-            color: #55717d;
-            margin-bottom: 35px;
+        .hero-line {
+            width: 75px;
+            height: 2px;
+            background: var(--gold);
+            margin: 42px 0 35px;
         }
 
-        .line {
-            width: 60px;
-            height: 4px;
-            background: #2c7b79;
-            margin: 0 auto 35px;
-            border-radius: 3px;
+        .hero-tagline {
+            font-size: clamp(19px, 2vw, 27px);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 400;
+            color: #d6dedf;
         }
 
-        p {
+        .hero-description {
+            margin-top: 30px;
+            max-width: 650px;
             font-size: 18px;
-            line-height: 1.7;
-            color: #53636a;
+            line-height: 1.8;
+            color: var(--muted);
         }
 
-        .location {
-            margin-top: 35px;
+        .scroll {
+            position: absolute;
+            bottom: 38px;
+            right: 6%;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: rgba(255,255,255,.35);
+            transform: rotate(90deg);
+            transform-origin: right;
+        }
+
+        /* INTRO */
+
+        .intro {
+            background: var(--cream);
+            color: #17282f;
+            padding: 130px 8%;
+        }
+
+        .intro-grid {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: .7fr 1.3fr;
+            gap: 100px;
+            align-items: start;
+        }
+
+        .section-label {
+            color: var(--teal);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .intro h2 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(40px, 5vw, 66px);
+            line-height: 1.1;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+
+        .intro p {
+            font-size: 18px;
+            line-height: 1.85;
+            color: #56676c;
+            max-width: 700px;
+        }
+
+        /* INTERESTS */
+
+        .interests {
+            padding: 130px 8%;
+            background: #0c2029;
+        }
+
+        .section-header {
+            max-width: 1200px;
+            margin: 0 auto 65px;
+        }
+
+        .section-header h2 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(42px, 5vw, 65px);
+            margin-top: 15px;
+            font-weight: 600;
+        }
+
+        .cards {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .card {
+            padding: 50px 35px 55px;
+            border-right: 1px solid var(--line);
+            transition: background .3s, transform .3s;
+        }
+
+        .card:first-child {
+            border-left: 1px solid var(--line);
+        }
+
+        .card:hover {
+            background: rgba(255,255,255,.04);
+            transform: translateY(-4px);
+        }
+
+        .number {
+            color: var(--gold);
+            font-size: 11px;
+            letter-spacing: 2px;
+            margin-bottom: 45px;
+        }
+
+        .card h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 27px;
+            margin-bottom: 18px;
+            font-weight: 500;
+        }
+
+        .card p {
+            color: #8fa2a8;
+            line-height: 1.7;
             font-size: 15px;
-            color: #84939a;
+        }
+
+        /* STATEMENT */
+
+        .statement {
+            background: var(--cream);
+            color: var(--navy);
+            padding: 150px 8%;
+            text-align: center;
+        }
+
+        .statement-inner {
+            max-width: 950px;
+            margin: auto;
+        }
+
+        .statement blockquote {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(37px, 5vw, 62px);
+            line-height: 1.25;
+            font-weight: 500;
+        }
+
+        .statement-line {
+            width: 55px;
+            height: 2px;
+            background: var(--gold);
+            margin: 45px auto 0;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #071218;
+            padding: 70px 8% 35px;
+        }
+
+        .footer-main {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            padding-bottom: 55px;
+        }
+
+        .footer-name {
+            font-family: "Playfair Display", serif;
+            font-size: 38px;
+        }
+
+        .footer-location {
+            margin-top: 10px;
+            color: #71858c;
+            font-size: 13px;
+            letter-spacing: 1px;
+        }
+
+        .footer-tag {
+            text-align: right;
+            color: #71858c;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: auto;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255,255,255,.08);
+            display: flex;
+            justify-content: space-between;
+            color: #53656b;
+            font-size: 11px;
+        }
+
+        /* ANIMATION */
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content > * {
+            animation: fadeUp .8s ease both;
+        }
+
+        .hero-content h1 {
+            animation-delay: .1s;
+        }
+
+        .hero-line {
+            animation-delay: .2s;
+        }
+
+        .hero-tagline {
+            animation-delay: .3s;
+        }
+
+        .hero-description {
+            animation-delay: .4s;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 900px) {
+            .nav-links {
+                display: none;
+            }
+
+            h1 {
+                letter-spacing: -3px;
+            }
+
+            .intro-grid {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .card:nth-child(2) {
+                border-right: 1px solid var(--line);
+            }
+
+            .footer-main {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 30px;
+            }
+
+            .footer-tag {
+                text-align: left;
+            }
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                padding: 25px;
+            }
+
+            .hero {
+                padding: 130px 25px 90px;
+            }
+
+            h1 {
+                font-size: 65px;
+                letter-spacing: -2px;
+            }
+
+            .hero-tagline {
+                font-size: 16px;
+                letter-spacing: 2px;
+            }
+
+            .intro,
+            .interests,
+            .statement {
+                padding: 90px 25px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .card,
+            .card:first-child {
+                border-left: 1px solid var(--line);
+                border-right: 1px solid var(--line);
+                border-bottom: 1px solid var(--line);
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .scroll {
+                display: none;
+            }
         }
     </style>
 </head>
 
 <body>
 
-<div class="hero">
-    <div class="content">
+<nav>
+    <div class="logo">MD</div>
 
-        <h1>Marc Douglass</h1>
+    <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#interests">Interests</a>
+    </div>
+</nav>
 
-        <div class="tagline">
-            Entrepreneur · Investor · Real Estate
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="eyebrow">
+            Entrepreneur · Investor
         </div>
 
-        <div class="line"></div>
+        <h1>
+            Marc<br>
+            Douglass
+        </h1>
 
-        <p>
-            Entrepreneur and investor with interests in real estate,
-            business development, technology, and community projects.
+        <div class="hero-line"></div>
+
+        <div class="hero-tagline">
+            Business · Investments · Real Estate
+        </div>
+
+        <p class="hero-description">
+            Building businesses, investing in opportunities, and pursuing
+            projects designed to create long-term value.
         </p>
 
-        <div class="location">
-            Santa Rosa Beach, Florida
+    </div>
+
+    <div class="scroll">Explore</div>
+
+</section>
+
+
+<section class="intro" id="about">
+
+    <div class="intro-grid">
+
+        <div>
+            <div class="section-label">About Marc</div>
+        </div>
+
+        <div>
+            <h2>
+                Entrepreneurial thinking with a long-term perspective.
+            </h2>
+
+            <p>
+                Marc Douglass is an entrepreneur and investor with interests
+                spanning business development, private investments, real estate,
+                technology, and community initiatives. His approach centers on
+                identifying opportunities, building value, and taking a
+                long-term view.
+            </p>
         </div>
 
     </div>
-</div>
+
+</section>
+
+
+<section class="interests" id="interests">
+
+    <div class="section-header">
+        <div class="section-label">Areas of Interest</div>
+        <h2>Where I spend my time.</h2>
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="number">01</div>
+
+            <h3>Business</h3>
+
+            <p>
+                Entrepreneurship, acquisitions, business development,
+                and building companies for sustainable growth.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="number">02</div>
+
+            <h3>Investments</h3>
+
+            <p>
+                Private companies, emerging technology, alternative
+                investments, and long-term opportunities.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="number">03</div>
+
+            <h3>Real Estate</h3>
+
+            <p>
+                Real estate investment, development, property projects,
+                and identifying opportunities in growing markets.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="number">04</div>
+
+            <h3>Community</h3>
+
+            <p>
+                Supporting projects focused on preservation,
+                responsible growth, and strong local communities.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="statement">
+
+    <div class="statement-inner">
+
+        <blockquote>
+            “The best opportunities are built by thinking beyond
+            what exists today.”
+        </blockquote>
+
+        <div class="statement-line"></div>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <div class="footer-main">
+
+        <div>
+            <div class="footer-name">Marc Douglass</div>
+
+            <div class="footer-location">
+                Florida
+            </div>
+        </div>
+
+        <div class="footer-tag">
+            Entrepreneur<br>
+            Investor<br>
+            Real Estate
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <span>© 2026 Marc Douglass</span>
+        <span>marcdouglass.com</span>
+    </div>
+
+</footer>
 
 </body>
 </html>
